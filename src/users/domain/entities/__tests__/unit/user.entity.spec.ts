@@ -15,10 +15,10 @@ describe('User entity unit tests', () => {
   });
 
   test('Constructor method', () => {
-    expect(sut.props.name).toBe(props.name);
-    expect(sut.props.email).toBe(props.email);
-    expect(sut.props.password).toBe(props.password);
-    expect(sut.props.createdAt).toBeDefined();
-    expect(sut.props.createdAt).toBeInstanceOf(Date);
+    expect(sut.name).toBe(props.name);
+    expect(sut.email).toBe(props.email);
+    expect(sut.password).toBe(props.password);
+    expect(sut.createdAt).toBeDefined();
+    expect(sut.createdAt).toBeInstanceOf(Date);
   });
 });
