@@ -1,4 +1,4 @@
-import { Entity } from '@/@shared/domain/entities/entity.entity';
+import { Entity } from '../../../@shared/domain/entities/entity.entity';
 
 export interface UserProps {
   name: string;
@@ -19,6 +19,10 @@ export class User extends Entity<UserProps> {
 
   get email() {
     return this.props.email;
+  }
+
+  get password(){
+    return this.props.password;
   }
 
   get createdAt() {
