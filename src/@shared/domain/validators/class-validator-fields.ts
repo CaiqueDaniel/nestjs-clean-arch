@@ -7,7 +7,7 @@ import {
 export abstract class ClassValidatorFields<PropsValidated>
   implements validatorFieldsInterface<PropsValidated>
 {
-  errors: FieldsErrors = {};
+  errors: FieldsErrors = null;
   validatedData: PropsValidated = null;
 
   validate(data: any): boolean {
@@ -16,6 +16,7 @@ export abstract class ClassValidatorFields<PropsValidated>
     if (errors.length) {
       for (const error of errors) {
         const field = error.property;
+        this.errors = {};
         this.errors[field] = Object.values(error.constraints);
       }
 
