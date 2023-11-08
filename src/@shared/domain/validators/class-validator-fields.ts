@@ -14,9 +14,10 @@ export abstract class ClassValidatorFields<PropsValidated>
     const errors = validateSync(data);
 
     if (errors.length) {
+      this.errors = {};
+
       for (const error of errors) {
         const field = error.property;
-        this.errors = {};
         this.errors[field] = Object.values(error.constraints);
       }
 
