@@ -100,7 +100,7 @@ describe('User integration tests', () => {
     });
   });
 
-  describe('Update method', () => {
+  describe('set name method', () => {
     it('Should throw an error when update a user with invalid name', () => {
       const entity = new User(mockProps);
       expect(() => (entity.name = null)).toThrowError(EntityValidationError);
@@ -122,6 +122,33 @@ describe('User integration tests', () => {
 
       const entity = new User(props);
       entity.name = 'other name';
+    });
+  });
+
+  describe('set password method', () => {
+    it('Should a invalid user using password field', () => {
+      const entity = new User(mockProps);
+      expect(() => (entity.password = null)).toThrowError(
+        EntityValidationError,
+      );
+      expect(() => (entity.password = '')).toThrowError(EntityValidationError);
+      expect(() => (entity.password = 10 as any)).toThrowError(
+        EntityValidationError,
+      );
+      expect(() => (entity.password = 'a'.repeat(101))).toThrowError(
+        EntityValidationError,
+      );
+    });
+
+    it('Should a valid user', () => {
+      expect.assertions(0);
+
+      const props: UserProps = {
+        ...mockProps,
+      };
+
+      const entity = new User(mockProps);
+      entity.password = 'other password';
     });
   });
 });
