@@ -1,4 +1,4 @@
-import { EntityValidationError } from 'src/@shared/domain/errors/validation-error';
+import { EntityValidationError } from '../../../../../@shared/domain/errors/validation-error';
 import { User, UserProps } from '../../user.entity';
 import { faker } from '@faker-js/faker';
 
@@ -15,7 +15,7 @@ describe('User integration tests', () => {
         ...mockProps,
         name: null,
       };
-      
+
       expect(() => new User(props)).toThrowError(EntityValidationError);
 
       props = {
@@ -87,6 +87,41 @@ describe('User integration tests', () => {
         password: 'a'.repeat(101),
       };
       expect(() => new User(props)).toThrowError(EntityValidationError);
+    });
+
+    it('Should a valid user', () => {
+      expect.assertions(0);
+
+      const props: UserProps = {
+        ...mockProps,
+      };
+
+      new User(props);
+    });
+  });
+
+  describe('Update method', () => {
+    it('Should throw an error when update a user with invalid name', () => {
+      const entity = new User(mockProps);
+      expect(() => (entity.name = null)).toThrowError(EntityValidationError);
+      expect(() => (entity.name = '')).toThrowError(EntityValidationError);
+      expect(() => (entity.name = 10 as any)).toThrowError(
+        EntityValidationError,
+      );
+      expect(() => (entity.name = 'a'.repeat(256))).toThrowError(
+        EntityValidationError,
+      );
+    });
+
+    it('Should a valid user', () => {
+      expect.assertions(0);
+
+      const props: UserProps = {
+        ...mockProps,
+      };
+
+      const entity = new User(props);
+      entity.name = 'other name';
     });
   });
 });
