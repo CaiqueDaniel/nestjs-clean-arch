@@ -23,13 +23,13 @@ export abstract class InMemoryRepository<E extends Entity>
     return this.items;
   }
   async update(entity: E): Promise<void> {
-    this.findById(entity.id);
+    await this.findById(entity.id);
 
     const entityIndex = this.items.findIndex((item) => item.id == entity.id);
     this.items[entityIndex] = entity;
   }
   async delete(id: string): Promise<void> {
-    this.findById(id);
+    await this.findById(id);
 
     const entityIndex = this.items.findIndex((item) => item.id == id);
     this.items.splice(entityIndex, 1);
