@@ -1,9 +1,9 @@
-import { ConflictError } from 'src/@shared/domain/errors/conflict-error';
-import { NotFoundError } from 'src/@shared/domain/errors/not-found-error';
-import { InMemorySearchableRepository } from 'src/@shared/domain/repositories/in-memory-searchable.repository';
-import { SortDirection } from 'src/@shared/domain/repositories/searchable-repository-contracts';
-import { User } from 'src/users/domain/entities/user.entity';
-import { UserRepository } from 'src/users/domain/repositories/user.repository';
+import { User } from "../../../../../users/domain/entities/user.entity";
+import { ConflictError } from "../../../../../@shared/domain/errors/conflict-error";
+import { NotFoundError } from "../../../../../@shared/domain/errors/not-found-error";
+import { InMemorySearchableRepository } from "../../../../../@shared/domain/repositories/in-memory-searchable.repository";
+import { UserRepository } from "../../../../../users/domain/repositories/user.repository";
+import { SortDirection } from "../../../../../@shared/domain/repositories/searchable-repository-contracts";
 
 export class UserInMemoryRepository
   extends InMemorySearchableRepository<User>
