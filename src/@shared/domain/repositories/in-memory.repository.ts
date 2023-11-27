@@ -1,9 +1,9 @@
 import { Entity } from '../entities/entity.entity';
 import { NotFoundError } from '../errors/not-found-error';
-import { Repository } from './repository-contracts';
+import { RepositoryInterface } from './repository-contracts';
 
 export abstract class InMemoryRepository<E extends Entity>
-  implements Repository<E>
+  implements RepositoryInterface<E>
 {
   items: E[] = [];
 
