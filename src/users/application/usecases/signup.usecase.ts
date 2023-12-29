@@ -1,6 +1,6 @@
-import { UserRepository } from 'src/users/domain/repositories/user.repository'
+import { UserRepository } from '../../../users/domain/repositories/user.repository'
 import { BadRequestError } from '../errors/bad-request-error'
-import { User } from 'src/users/domain/entities/user.entity'
+import { User } from '../../../users/domain/entities/user.entity'
 import { HashProvider } from '../providers/hash-provider'
 
 export namespace SignupUseCase {
