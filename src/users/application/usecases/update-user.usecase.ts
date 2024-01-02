@@ -1,10 +1,12 @@
-import { UserRepository } from '../../../users/domain/repositories/user.repository';
+import { BadRequestError } from 'src/@shared/domain/errors/bad-request-error';
+import { UserRepository } from 'src/users/domain/repositories/user.repository';
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 import { UseCase as DefaultUseCase } from './use-case';
 
-export namespace GetUserUseCase {
+export namespace UpdateUserUseCase {
   export type Input = {
     id: string;
+    name: string;
   };
 
   export type Output = UserOutput;
@@ -13,8 +15,13 @@ export namespace GetUserUseCase {
     constructor(private userRepository: UserRepository.Repository) {}
 
     async execute(input: Input): Promise<Output> {
+      if (!input.name) {
+        throw new BadRequestError('Name not provided');
+      }
       const entity = await this.userRepository.findById(input.id);
-      return UserOutputMapper.toOutput(entity)
+      entity.name = input.name;
+      await this.userRepository.update(entity);
+      return UserOutputMapper.toOutput(entity);
     }
   }
 }
