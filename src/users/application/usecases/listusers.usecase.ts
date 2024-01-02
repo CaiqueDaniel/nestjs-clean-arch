@@ -1,9 +1,9 @@
 import {
   PaginationOutput,
   PaginationOutputMapper,
-} from 'src/@shared/domain/dtos/pagination-output';
-import { SearchInput } from 'src/@shared/domain/dtos/search-input';
-import { UserRepository } from 'src/users/domain/repositories/user.repository';
+} from '../../../@shared/domain/dtos/pagination-output';
+import { SearchInput } from '../../../@shared/domain/dtos/search-input';
+import { UserRepository } from '../../../users/domain/repositories/user.repository';
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 import { UseCase as DefaultUseCase } from './use-case';
 

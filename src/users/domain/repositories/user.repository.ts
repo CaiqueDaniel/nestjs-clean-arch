@@ -3,7 +3,7 @@ import {
   SearchParams as DefaultSearchParams,
   SearchResult as DefaultSearchResult,
   SearchableRepositoryInterface,
-} from 'src/@shared/domain/repositories/searchable-repository-contracts';
+} from '../../../@shared/domain/repositories/searchable-repository-contracts';
 
 export namespace UserRepository {
   export type Filter = string;

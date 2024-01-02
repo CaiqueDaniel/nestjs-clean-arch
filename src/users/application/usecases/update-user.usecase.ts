@@ -1,5 +1,5 @@
-import { BadRequestError } from 'src/@shared/domain/errors/bad-request-error';
-import { UserRepository } from 'src/users/domain/repositories/user.repository';
+import { BadRequestError } from '../../../@shared/domain/errors/bad-request-error';
+import { UserRepository } from '../../../users/domain/repositories/user.repository';
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 import { UseCase as DefaultUseCase } from './use-case';
 

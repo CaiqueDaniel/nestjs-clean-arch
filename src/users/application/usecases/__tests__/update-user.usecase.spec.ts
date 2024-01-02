@@ -1,9 +1,9 @@
 import { NotFoundError } from "rxjs"
-import { BadRequestError } from "src/@shared/domain/errors/bad-request-error"
-import { UserDataBuilder } from "src/users/domain/testing/helpers/user-data-builder"
-import { UserInMemoryRepository } from "src/users/infrastructure/database/in-memory/repositories/in-memory-user.repository"
+import { BadRequestError } from "../../../../@shared/domain/errors/bad-request-error"
+import { UserDataBuilder } from "../../../../users/domain/testing/helpers/user-data-builder"
+import { UserInMemoryRepository } from "../../../../users/infrastructure/database/in-memory/repositories/in-memory-user.repository"
 import { UpdateUserUseCase } from "../update-user.usecase"
-import { User } from "src/users/domain/entities/user.entity"
+import { User } from "../../../../users/domain/entities/user.entity"
 
 
 describe('UpdateUserUseCase unit tests', () => {
