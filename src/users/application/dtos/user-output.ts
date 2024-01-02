@@ -1,3 +1,5 @@
+import { User } from 'src/users/domain/entities/user.entity';
+
 export type UserOutput = {
   id: string;
   name: string;
@@ -5,3 +7,9 @@ export type UserOutput = {
   password: string;
   createdAt: Date;
 };
+
+export class UserOutputMapper {
+  static toOutput(entity: User): UserOutput {
+    return entity.toJSON();
+  }
+}
