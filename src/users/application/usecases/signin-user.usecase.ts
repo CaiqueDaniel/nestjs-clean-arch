@@ -1,9 +1,9 @@
-import { BadRequestError } from 'src/@shared/domain/errors/bad-request-error';
-import { UserRepository } from 'src/users/domain/repositories/user.repository';
+import { BadRequestError } from '../../../@shared/domain/errors/bad-request-error';
+import { UserRepository } from '../../../users/domain/repositories/user.repository';
 import { UserOutput, UserOutputMapper } from '../dtos/user-output';
 import { HashProvider } from '../providers/hash-provider';
 import { UseCase as DefaultUseCase } from './use-case';
-import { InvalidCredentialsError } from 'src/@shared/domain/errors/invalid-credentials-error';
+import { InvalidCredentialsError } from '../../../@shared/domain/errors/invalid-credentials-error';
 
 export namespace SigninUseCase {
   export type Input = {
